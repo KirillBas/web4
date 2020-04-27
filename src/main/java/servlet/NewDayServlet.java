@@ -1,6 +1,7 @@
 package servlet;
 
 import com.google.gson.Gson;
+import model.DailyReport;
 import service.CarService;
 import service.DailyReportService;
 
@@ -17,9 +18,13 @@ public class NewDayServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Gson gson = new Gson();
         String json = gson.toJson(DailyReportService.getInstance().getAddReport());
+        DailyReport dailyReport = gson.fromJson(json, DailyReport.class);
+        System.out.println(dailyReport.toString());
+        CarService.getInstance().getSetDeleteCars();
         PrintWriter out = resp.getWriter();
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
+        out.print(dailyReport);
         out.print(json);
         out.flush();
     }

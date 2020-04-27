@@ -28,7 +28,6 @@ public class DailyReportService {
         return new DailyReportDao(sessionFactory.openSession()).getAllDailyReport();
     }
 
-
     public DailyReport getLastReport() {
         return new DailyReportDao(sessionFactory.openSession()).getLast();
     }
@@ -37,7 +36,7 @@ public class DailyReportService {
         return new DailyReportDao(sessionFactory.openSession()).addReport();
     }
 
-    public void getDeleteAllReports() {
-        new DailyReportDao(sessionFactory.openSession()).deleteAllReports();
+    public boolean getDeleteAllReports() {
+        return new DailyReportDao(sessionFactory.openSession()).deleteAllReports();
     }
 }

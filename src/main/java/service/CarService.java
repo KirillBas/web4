@@ -40,7 +40,11 @@ public class CarService {
         return new CarDao(sessionFactory.openSession()).sellCar(car);
     }
 
-    public void getDeleteAllCars() {
-        new CarDao(sessionFactory.openSession()).deleteAllCars();
+    public boolean getDeleteAllCars() {
+        return new CarDao(sessionFactory.openSession()).deleteAllCars();
+    }
+
+    public void getSetDeleteCars() {
+        new CarDao(sessionFactory.openSession()).setDeleteCars();
     }
 }

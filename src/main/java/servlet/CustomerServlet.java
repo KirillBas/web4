@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class CustomerServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Gson gson = new Gson();

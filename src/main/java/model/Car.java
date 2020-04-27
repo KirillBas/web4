@@ -26,16 +26,20 @@ public class Car {
     @Column(name = "sold")
     private boolean sold;
 
+    @Column(name = "deleted")
+    private boolean deleted;
+
     public Car() {
 
     }
 
-    public Car(String brand, String model, String licensePlate, Long price, boolean sold) {
+    public Car(String brand, String model, String licensePlate, Long price, boolean sold, boolean deleted) {
         this.brand = brand;
         this.model = model;
         this.licensePlate = licensePlate;
         this.price = price;
         this.sold = sold;
+        this.deleted = deleted;
     }
 
     public String getBrand() {
@@ -84,5 +88,13 @@ public class Car {
 
     public void setSold(boolean sold) {
         this.sold = sold;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
     }
 }
